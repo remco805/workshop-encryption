@@ -29,14 +29,6 @@ public class Exercise4Test {
         user.setName("a developer");
         user.setGender("m");
     }
-
-    @Test
-    public void otherUserCanReadUnencryptedInformation() throws Exception {
-        application.login("another user", "other password");
-        SharingUser user = Application.USERS.get("user");
-        
-        assertThat(user.getGender(), is(equalTo("m")));
-    }
     
     @Test(expected=Exception.class)
     public void otherUserCannotReadPersonalInformation() throws Exception {

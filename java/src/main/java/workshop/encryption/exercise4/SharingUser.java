@@ -1,26 +1,19 @@
 package workshop.encryption.exercise4;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.abstractj.kalium.keys.KeyPair;
 import org.abstractj.kalium.keys.PrivateKey;
 import org.abstractj.kalium.keys.PublicKey;
 
-import workshop.encryption.exercise3.Application;
 import workshop.encryption.exercise3.User;
 
 public class SharingUser extends User {
     
     private EncryptedPrivateKey privateKey;
     private PublicKey publicKey;
-    
-    private Map<String, AsymmetricEncryptedString> sharedContentKeys =
-            new HashMap<String, AsymmetricEncryptedString>();
 
     public SharingUser(String username, String password) {
         super(username, password);
-        
+
         KeyPair keypair = new KeyPair();
         this.privateKey = new EncryptedPrivateKey(password, keypair.getPrivateKey());
         this.publicKey = keypair.getPublicKey();
@@ -35,13 +28,26 @@ public class SharingUser extends User {
     }
     
     public void shareContentKeyWith(SharingUser otherUser) {
-        String contentKey = Application.SESSION.getContentKey(this);
-        otherUser.sharedContentKeys.put(getUsername(),
-                new AsymmetricEncryptedString(otherUser.getPublicKey(), Application.SESSION.getPrivateKey(), contentKey));
+        
+        /**
+         * TODO: implement this method
+         * - get the contentKey of the logged in user
+         * - get the privateKey of the logged in user (hint you should add this to Application.SESSION)
+         * - store the contentKey of the logged in user in a map of sharedContentKeys for otherUser, i.e. Map<String, AsymmetricEncryptedString>
+         * 
+         */
+
     }
     
     public String getSharedContentKey(SharingUser otherUser) {
-        AsymmetricEncryptedString sharedContentKey = sharedContentKeys.get(otherUser.getUsername());
-        return sharedContentKey.getValue(Application.SESSION.getPrivateKey(), otherUser.getPublicKey());
+        
+        /**
+         * TODO: implement this method
+         * - get the (encrypted) sharedContentKey from the map of sharedContentKeys
+         * - decrypt the the content key
+         * 
+         */
+
+        return null;
     }
 }

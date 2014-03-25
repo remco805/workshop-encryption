@@ -1,20 +1,27 @@
 package workshop.encryption.exercise3;
 
-import helpers.HashedKey;
-import helpers.RandomNonce;
-import workshop.encryption.exercise1.Symmetric;
-
 public class EncryptedString {
-
-    private byte[] ciphertext;
-    private RandomNonce nonce;
     
     public EncryptedString(String key, String value) {
-        this.nonce = new RandomNonce();
-        this.ciphertext = Symmetric.encrypt(new HashedKey(key.getBytes()), nonce, value.getBytes());
+        
+        /**
+         * TODO: implement this method
+         * - use exercise1.Symmetric#encrypt
+         * - tip: use RandomNonce for creating a nonce
+         * - hint: you should always use the same nonce for encrypting / decrypting
+         * 
+         */
+        
     }
 
     public String getValue(String key) {
-        return new String(Symmetric.decrypt(new HashedKey(key.getBytes()), this.nonce, this.ciphertext));
+        
+        /**
+         * TODO: implement this method
+         * - use exercise1.Symmetric#decrypt
+         * 
+         */
+        
+        return null;
     }
 }

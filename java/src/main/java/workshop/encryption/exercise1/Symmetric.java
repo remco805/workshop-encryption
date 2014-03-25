@@ -13,7 +13,14 @@ public class Symmetric {
     }
 
     public static byte[] decrypt(HashedKey key, RandomNonce nonce, byte[] encryptedMessage) {
-        SecretBox box = new SecretBox(key.getBytes());
-        return box.decrypt(nonce.getBytes(), encryptedMessage);
+        
+        /**
+         * TODO: implement this method
+         * - take a look at the implementation of the #encrypt method
+         * - use SecretBox#decrypt
+         * 
+         */
+        
+        return null;
     }
 }

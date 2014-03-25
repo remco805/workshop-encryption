@@ -1,18 +1,20 @@
 package workshop.encryption.exercise3;
 
-import helpers.RandomKey;
-
 public class User {
     
     private String username;
-    
-    private EncryptedString encryptedContentKey;
-    private EncryptedString encryptedName;
     private String gender;
     
     public User(String username, String password) {
-        String contentKey = new String(new RandomKey().getBytes());
-        this.encryptedContentKey = new EncryptedString(password, contentKey);
+        
+        /**
+         * TODO: implement this method
+         * - create a new contentKey (tip: use helpers.RandomKey) - it should be a string
+         * - the contenKey should be encrypted with the password of the user
+         * - use EncryptedString for storing an encrypted value
+         * 
+         */
+        
         this.username = username;
     }
     
@@ -21,15 +23,35 @@ public class User {
     }
 
     public String getContentKey(String password) {
-        return this.encryptedContentKey.getValue(password);
+        
+        /**
+         * TODO: implement this method
+         * 
+         */
+        
+        return null;
     }
     
     public void setName(String name) {
-        this.encryptedName = new EncryptedString(Application.SESSION.getContentKey(this), name);
+        
+        /**
+         * TODO: implement this method
+         * - store the name in an EncryptedString
+         * - the name should be encrypted with the contentKey of the user
+         * - hint: the contentKey is stored in the session of the user
+         * 
+         */
+
     }
     
     public String getName() {
-        return this.encryptedName.getValue(Application.SESSION.getContentKey(this));
+        
+        /**
+         * TODO: implement this method
+         * 
+         */
+        
+        return null;
     }
     
     public void setGender(String gender) {
